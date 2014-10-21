@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!-- Map Layout by SNAZZY MAPS: - http://snazzymaps.com/style/98/purple-rain -->
+<html>
+<head>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+  <script>
+  
+
+
+     var map;
+
+     function makeMap(lat, long) {
+       var latlng = new google.maps.LatLng(lat, long);
+       var options = {
+         zoom: 8,
+         center: latlng,
+		 styles: [{"featureType":"road","stylers":[{"hue":"#5e00ff"},{"saturation":-79}]},{"featureType":"poi","stylers":[{"saturation":-78},{"hue":"#6600ff"},{"lightness":-47},{"visibility":"off"}]},{"featureType":"road.local","stylers":[{"lightness":22}]},{"featureType":"landscape","stylers":[{"hue":"#6600ff"},{"saturation":-11}]},{},{},{"featureType":"water","stylers":[{"saturation":-65},{"hue":"#1900ff"},{"lightness":8}]},{"featureType":"road.local","stylers":[{"weight":1.3},{"lightness":30}]},{"featureType":"transit","stylers":[{"visibility":"simplified"},{"hue":"#5e00ff"},{"saturation":-16}]},{"featureType":"transit.line","stylers":[{"saturation":-72}]},{}]
+       };
+
+       map = new google.maps.Map(document.getElementById("map"), options);
+     }
+
+     function printCoords() {
+       num_coords = $('table tbody tr').length
+       var cTable = document.getElementById("cTable")
+       for (i = 0; i < num_coords; i++)
+         lng = cTable.rows[i].cells[0].textContent
+         lat = cTable.rows[i].cells[1].textContent
+        document.write(lat + "\t, " + lng + "\n")
+     }
+
+	var pinImage = new google.maps.MarkerImage("marker.png");
+
+     function placeMarkers() {
+       num_coords = $('table tbody tr').length
+       var cTable = document.getElementById("cTable")
+       for (i = 0; i < num_coords; i++) {
+         lng = cTable.rows[i].cells[0].textContent
+         lat = cTable.rows[i].cells[1].textContent
+	 text = cTable.rows[i].cells[2].textContent
+         var myLatlng = new google.maps.LatLng(lat,lng);
+
+	 var marker = new google.maps.Marker({
+	   position: myLatlng,
+	   map: map,
+	   icon: pinImage,
+	   title: text
+	   
+	 });
+       }
+     }					  
+
+
+   $(document).ready(function () {
+     $('#cTable').hide()
+     
+     makeMap(30, -97)
+     placeMarkers()
+	 
+   });
+
+  </script>
+</head>
+
+<body>
+<div id = "map" style="height: 468px"></div></div><table id = "cTable">
+<tr id = "coord0">
+<td id = "lng">-100.44602094</td><td id = "lat">31.44573434</td>
+<td>My biggest regret in life so far is not going to see Eminem at ACL. 😔</td>
+</tr>
+<tr id = "coord1">
+<td id = "lng">-100.482879</td><td id = "lat">31.43278083</td>
+<td>Megan was showing me a video of Eminem from ACL and all I could say was "I didn't see Eminem" and I burst straight into tears..😭😂 #obsession</td>
+</tr>
+<tr id = "coord2">
+<td id = "lng">-93.99571318</td><td id = "lat">29.96759365</td>
+<td>@eventreviews Eminem and Outkast were amazing, but I discovered the Avett Brothers at ACL and they changed my life!</td>
+</tr>
+<tr id = "coord3">
+<td id = "lng">-100.48282058</td><td id = "lat">31.43288473</td>
+<td>@maddie_massey just burst into tears seeing eminem videos from ACL.</td>
+</tr>
+<tr id = "coord4">
+<td id = "lng">-97.7694157</td><td id = "lat">30.26716128</td>
+<td>Marshall's all that Mathers #eminem #slimshady #ACLfest @ Austin City Limits Music Festival (ACL) http://t.co/dTL41Oy0zl</td>
+</tr>
+<tr id = "coord5">
+<td id = "lng">90.35433</td><td id = "lat">23.78437</td>
+<td>"@Eminem: BBQ all week until round 2 of #ACL http://t.co/1ihrkF6Rte"</td>
+</tr>
+<tr id = "coord6">
+<td id = "lng">-97.77666667</td><td id = "lat">30.26361111</td>
+<td>Austin city limits, what a fun festival #ACL #ATX #UTAustin #longhorns #Eminem #geology #festival @… http://t.co/REdH8tUAws</td>
+</tr>
+<tr id = "coord7">
+<td id = "lng">-98.62427338</td><td id = "lat">29.49807689</td>
+<td>then THIS happened! 
+My life is complete!
+#Eminem #slimshady #acl #aclfest @ Austin City Limits Music… http://t.co/EV84O984on</td>
+</tr>
+<tr id = "coord8">
+<td id = "lng">-97.77031667</td><td id = "lat">30.26910333</td>
+<td>ACL sing for the moment. #eminem #slimshady #marshallmathers #ACL #ACLFest #AustinCityLimits #rapgod @… http://t.co/rHzjPrU367</td>
+</tr>
+<tr id = "coord9">
+<td id = "lng">-98.6485499</td><td id = "lat">29.4841553</td>
+<td>Felt bad for @IGGYAZALEA at #acl right before @Eminem so alot of fans missed her waiting for a good spot to watch the #RapGod</td>
+</tr>
+<tr id = "coord10">
+<td id = "lng">-97.77031667</td><td id = "lat">30.26910333</td>
+<td>Eminem!!! #ACL #ACLFest #eminem #slimshady #marshallmathers #rapgod #AustinCityLimits… http://t.co/eMkV9LGzi4</td>
+</tr>
+<tr id = "coord11">
+<td id = "lng">-97.76644434</td><td id = "lat">30.26689562</td>
+<td>What a weekend😆 #Eminem #ACLFest @ ACL Zilker Park http://t.co/fbYCJOgMJg</td>
+</tr>
+<tr id = "coord12">
+<td id = "lng">-97.77495348</td><td id = "lat">30.2677073</td>
+<td>ACL this past weekend was so amazing. Seeing Lorde, OutKast, Lana, &amp; Eminem were definitely my… http://t.co/S6vPV8MgCU</td>
+</tr>
+<tr id = "coord13">
+<td id = "lng">-97.76382947</td><td id = "lat">30.26737867</td>
+<td>Feminist women love Eminem. #mcm @ ACL Fest Zilker Park http://t.co/naGhAdcO5c</td>
+</tr>
+<tr id = "coord14">
+<td id = "lng">-97.75208891</td><td id = "lat">30.25682736</td>
+<td>My ACL recap: Phantogram, Bleachers, The Gaslights Anthem, Lana del Ray, Chvrches, Lorde, Foster the People, Outkast, Eminem, Pearl Jam.</td>
+</tr>
+<tr id = "coord15">
+<td id = "lng">-97.77738395</td><td id = "lat">30.57049767</td>
+<td>Flying saucer, boxing presser, strip club, got laid, Ojos locos, Felipe Esparza, Austin ACL, Eminem, shopping, &amp; a Dallas cowboys victory</td>
+</tr>
+<tr id = "coord16">
+<td id = "lng">-98.60177797</td><td id = "lat">29.57700006</td>
+<td>La neta todo mi pedo de ir a ACL fue para ver a Eminem.</td>
+</tr>
+</table>
+</body>
+
+</html>
