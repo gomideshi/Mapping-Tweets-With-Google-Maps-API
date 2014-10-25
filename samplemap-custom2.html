@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<!-- Map Layout by SNAZZY MAPS: - http://snazzymaps.com/style/98/purple-rain -->
+<html>
+<head>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>
+  <title> Mapping ACL Tweets </title>
+  <style>
+.leftside {
+  display: inline-block;
+  float: left;
+  margin: 20px;
+}
+.rightside {
+  display: inline-block;
+  margin-left: 10px;
+  width: 60%;
+}
+body {
+	/* background-color: #E7EDF2; */
+	background-image: url('bg.png');
+	background-repeat: repeat;
+	font-family: Asap;
+}
+h1.one {
+	text-shadow: 3px 3px 0px rgba(5, 209, 181, 1);
+}
+h1.two {
+	text-shadow: 3px 3px 0px rgba(223, 209, 136, 1);
+}
+  </style>
+  <script>
+     var map;
+
+     function makeMap(lat, long) {
+       var latlng = new google.maps.LatLng(lat, long);
+       var options = {
+         zoom: 8,
+         center: latlng,
+		 styles: [{"featureType":"road","stylers":[{"hue":"#5e00ff"},{"saturation":-79}]},{"featureType":"poi","stylers":[{"saturation":-78},{"hue":"#6600ff"},{"lightness":-47},{"visibility":"off"}]},{"featureType":"road.local","stylers":[{"lightness":22}]},{"featureType":"landscape","stylers":[{"hue":"#6600ff"},{"saturation":-11}]},{},{},{"featureType":"water","stylers":[{"saturation":-65},{"hue":"#1900ff"},{"lightness":8}]},{"featureType":"road.local","stylers":[{"weight":1.3},{"lightness":30}]},{"featureType":"transit","stylers":[{"visibility":"simplified"},{"hue":"#5e00ff"},{"saturation":-16}]},{"featureType":"transit.line","stylers":[{"saturation":-72}]},{}]
+       };
+
+       map = new google.maps.Map(document.getElementById("map"), options);
+     }
+
+     function printCoords() {
+       num_coords = $('table tbody tr').length
+       var cTable = document.getElementById("cTable")
+       for (i = 0; i < num_coords; i++)
+         lng = cTable.rows[i].cells[0].textContent
+         lat = cTable.rows[i].cells[1].textContent
+        document.write(lat + "\t, " + lng + "\n")
+     }
+
+	var pinImage = new google.maps.MarkerImage("new_marker2.png");
+
+     function placeMarkers() {
+       num_coords = $('table tbody tr').length
+       var cTable = document.getElementById("cTable")
+       for (i = 0; i < num_coords; i++) {
+         lng = cTable.rows[i].cells[0].textContent
+         lat = cTable.rows[i].cells[1].textContent
+	 text = cTable.rows[i].cells[2].textContent
+         var myLatlng = new google.maps.LatLng(lat,lng);
+
+	 var marker = new google.maps.Marker({
+	   position: myLatlng,
+	   map: map,
+	   icon: pinImage,
+	   title: text
+	   
+	 });
+       }
+     }					  
+
+
+   $(document).ready(function () {
+     $('#cTable').hide()
+     
+     makeMap(30, -98)
+     placeMarkers()
+	 
+   });
+
+  </script>
+</head>
+
+<body>
+
+<div id = "map" class="leftside" style="height: 550px; width: 400px; border: 1px solid #4B088A; float:left; display: inline-block;"></div>
+<table id = "cTable">
+<tr id = "coord0">
+<td id = "lng">-97.7694157</td><td id = "lat">30.26716128</td>
+<td>More @lanadelrey @aclfestival 10.11.14 - #drawing #ACLfest #austin #music #festival #sketching #art @… http://t.co/BwbVNwtGEY</td>
+</tr>
+<tr id = "coord6">
+<td id = "lng">-85.29248827</td><td id = "lat">35.06986059</td>
+<td>“@slickandquick: #ACLFest #KennyRogers #TheGambler #jennygarth http://t.co/63ZofuPC3d” best ever.</td>
+</tr>
+<tr id = "coord7">
+<td id = "lng">-97.7694157</td><td id = "lat">30.26716128</td>
+<td>hELL yES! #beck @ #ACLfest 10.10.14 - #drawing #austin #music #acl #moleskine #art #atx #texas @… http://t.co/VacAlCb0Q9</td>
+</tr>
+<tr id = "coord9">
+<td id = "lng">-97.7694157</td><td id = "lat">30.26716128</td>
+<td>Eminem #security scoping it out during Lana del rey set @ #ACLfest 10.11.14 - #drawing #austin #music… http://t.co/JQKeeqAUMM</td>
+</tr>
+<tr id = "coord11">
+<td id = "lng">-97.767423</td><td id = "lat">30.266082</td>
+<td>Let the good times ROLL! #ACLFEST #CalvinHarris @ Zilker Metropolitan Park http://t.co/Ogsu56riee</td>
+</tr>
+<tr id = "coord14">
+<td id = "lng">-97.91226807</td><td id = "lat">29.90150785</td>
+<td>“@rhackleman: @JRoddyBusiness put on one hell of a show at @aclfestival #ACLFest http://t.co/cfVWD8yXrf” @TheT_Matt</td>
+</tr>
+<tr id = "coord16">
+<td id = "lng">-97.7694157</td><td id = "lat">30.26716128</td>
+<td>Marshall's all that Mathers #eminem #slimshady #ACLfest @ Austin City Limits Music Festival (ACL) http://t.co/dTL41Oy0zl</td>
+</tr>
+<tr id = "coord21">
+<td id = "lng">-86.80709145</td><td id = "lat">35.96340331</td>
+<td>#treeoflife #ACLFest http://t.co/tIMD9eLn6g</td>
+</tr>
+<tr id = "coord23">
+<td id = "lng">-122.13363931</td><td id = "lat">47.61012722</td>
+<td>I saw Lorde in concert at #ACLfest and she is in fact a 45 year old man @SouthPark</td>
+</tr>
+<tr id = "coord29">
+<td id = "lng">-97.74409483</td><td id = "lat">30.39083043</td>
+<td>#lanadelray @ #aclfest . @ ACL http://t.co/NMSUSD71c0</td>
+</tr>
+<tr id = "coord31">
+<td id = "lng">-97.93822985</td><td id = "lat">29.88215188</td>
+<td>So this so called "music" columnist guy didn't realize that major lazer is made up of more than one person. #ACLfest http://t.co/Y7voLCGajt</td>
+</tr>
+<tr id = "coord32">
+<td id = "lng">-97.7694157</td><td id = "lat">30.26716128</td>
+<td>Lotsa blond hair and rocknroll on the @bmi stage - #bully #drawing #austin #music #ACLfest #acl… http://t.co/q5b1C6XeES</td>
+</tr>
+<tr id = "coord33">
+<td id = "lng">-97.7694157</td><td id = "lat">30.26716128</td>
+<td>One #beck #doodle amongst many @ #ACLfest - #loser #drawing #austin #music #acl @ Austin City Limits… http://t.co/Z00vVFbiEv</td>
+</tr>
+<tr id = "coord37">
+<td id = "lng">-97.7435522</td><td id = "lat">30.355472</td>
+<td>@TpTroubadours Thanks for the awesome show and for the picture! #longhotsummerdays #wholedamntown #ACLFest http://t.co/82WB1eOvd6</td>
+</tr>
+<tr id = "coord39">
+<td id = "lng">-97.70576006</td><td id = "lat">30.33266989</td>
+<td>The Glitch Mob was one of my fave performances at ACL ?? #theglitchmob #acl #aclfest #aclfestival… http://t.co/NehA7V7Yti</td>
+</tr>
+<tr id = "coord41">
+<td id = "lng">-97.76857344</td><td id = "lat">30.26657876</td>
+<td>#ReubenandtheDark #ACLFEST @ Zilker Metropolitan Park http://t.co/IozMeCxG4U</td>
+</tr>
+<tr id = "coord42">
+<td id = "lng">-97.7694157</td><td id = "lat">30.26716128</td>
+<td>The #crows waiting on Lucius @aclfestival 10.11.14 - #drawing #austin #ACLfest #acl #music #sketching… http://t.co/QVBBNjT2ha</td>
+</tr>
+<tr id = "coord44">
+<td id = "lng">-95.44851864</td><td id = "lat">29.63316467</td>
+<td>If you haven't already checked out Benjamin Booker's s/t debut album... Do.
+@bbookernola #ACLFest… http://t.co/lHTX9g2q2S</td>
+</tr>
+<tr id = "coord46">
+<td id = "lng">-94.58450339</td><td id = "lat">39.1093418</td>
+<td>?? = me looking back at ALL the people rocking out to the #eminem show at aclfest. Video is a bit… http://t.co/Ot7ePkVVI0</td>
+</tr>
+<tr id = "coord48">
+<td id = "lng">-98.62427338</td><td id = "lat">29.49807689</td>
+<td>then THIS happened! 
+My life is complete!
+#Eminem #slimshady #acl #aclfest @ Austin City Limits Music… http://t.co/EV84O984on</td>
+</tr>
+<tr id = "coord51">
+<td id = "lng">-97.76857344</td><td id = "lat">30.26657876</td>
+<td>#ReubenandtheDark #ACLFEST @ Zilker Metropolitan Park http://t.co/oG6SBAUV1Z</td>
+</tr>
+<tr id = "coord54">
+<td id = "lng">-97.76857344</td><td id = "lat">30.26657876</td>
+<td>#AvettBrothers #ACLFEST @ Zilker Metropolitan Park http://t.co/vUAtCU62kI</td>
+</tr>
+<tr id = "coord56">
+<td id = "lng">-97.76857344</td><td id = "lat">30.26657876</td>
+<td>#Lorde @lordemusic #ACLFEST @ Zilker Metropolitan Park http://t.co/TUKzFNRW8W</td>
+</tr>
+<tr id = "coord57">
+<td id = "lng">-97.76857344</td><td id = "lat">30.26657876</td>
+<td>#PearlJam #ACLFEST @ Zilker Metropolitan Park http://t.co/hcLYU2n0VK</td>
+</tr>
+<tr id = "coord58">
+<td id = "lng">-97.76857344</td><td id = "lat">30.26657876</td>
+<td>#BrokenBells #ACLFEST @ Zilker Metropolitan Park http://t.co/bIkh98Xpdi</td>
+</tr>
+<tr id = "coord61">
+<td id = "lng">-97.76382947</td><td id = "lat">30.26737867</td>
+<td>Out of body experience. #CalvinHarris #ACLFest @ ACL Fest Zilker Park http://t.co/p7o7yFopKb</td>
+</tr>
+<tr id = "coord65">
+<td id = "lng">-97.7694157</td><td id = "lat">30.26716128</td>
+<td>#bully from #nashville a good find on the @bmi stage #ACLfest 10.11.14 - #drawing #austin #music… http://t.co/h9d7G41oio</td>
+</tr>
+<tr id = "coord67">
+<td id = "lng">-97.76922</td><td id = "lat">30.26860833</td>
+<td>#ACLFest with some of my family. #TheKINGDOM @ Austin City Limits http://t.co/hAFXfaSKEc</td>
+</tr>
+<tr id = "coord68">
+<td id = "lng">-97.74729106</td><td id = "lat">30.26535667</td>
+<td>.@lettucefunk crushing #ACLfest yesterday! Check out updates from #austin on the tour log @ http://t.co/LlzPT4Vl0D.… http://t.co/aX3SjymeIw</td>
+</tr>
+<tr id = "coord69">
+<td id = "lng">-74.03488593</td><td id = "lat">40.76684256</td>
+<td>“@notchrisbeard: My friend group during Lana vs. my friend group during Eminem #ACLFest http://t.co/aSk7A1ssAF” Vanessa is jus so hot</td>
+</tr>
+<tr id = "coord70">
+<td id = "lng">-98.6173298</td><td id = "lat">29.58465328</td>
+<td>?Finally, finally, FINALLY? aclfest #ACLfest @fitzandtantrums #stilldancing #stillsinging #losamo… http://t.co/zvTCwEQodU</td>
+</tr>
+<tr id = "coord71">
+<td id = "lng">-97.83094622</td><td id = "lat">30.52338023</td>
+<td>Zedd was so live ???? 
+
+It may have been hot as hell, but 3rd row was so worth it ???? #ACLFest… http://t.co/iL4rOHx126</td>
+</tr>
+<tr id = "coord72">
+<td id = "lng">-97.77031667</td><td id = "lat">30.26910333</td>
+<td>ACL sing for the moment. #eminem #slimshady #marshallmathers #ACL #ACLFest #AustinCityLimits #rapgod @… http://t.co/rHzjPrU367</td>
+</tr>
+<tr id = "coord73">
+<td id = "lng">-97.76305343</td><td id = "lat">30.2636175</td>
+<td>Un amigo de Houston. #elmejor #TheMollys #ACLfest @ Ziker Park http://t.co/vHe5LKrViX</td>
+</tr>
+<tr id = "coord78">
+<td id = "lng">-52.70274004</td><td id = "lat">47.61926742</td>
+<td>#monster #eminem his backup singer gave Rihanna a run for her money. Her voice was great. #aclfest @… http://t.co/ptflsQd2wq</td>
+</tr>
+<tr id = "coord81">
+<td id = "lng">-97.7690499</td><td id = "lat">30.2664505</td>
+<td>#ACLFest #jellysquad calvinharris courtneycrash12 @lizpolom michaelzanti @felipelobon paperbackfoster… http://t.co/DkkbAIHhEw</td>
+</tr>
+<tr id = "coord82">
+<td id = "lng">-97.7690499</td><td id = "lat">30.2664505</td>
+<td>#ACLFest #jellysquad calvinharris courtneycrash12 @lizpolom michaelzanti @felipelobon paperbackfoster… http://t.co/TFtwNnbgq4</td>
+</tr>
+<tr id = "coord86">
+<td id = "lng">-97.7694157</td><td id = "lat">30.26716128</td>
+<td>The most epic of finales. #pearljam #aclfest #godblessamerica @ Austin City Limits Music Festival (ACL) http://t.co/Y90S6B7cb9</td>
+</tr>
+<tr id = "coord87">
+<td id = "lng">-97.7694157</td><td id = "lat">30.26716128</td>
+<td>Calvin Harris presents the "I Hope You Don't have Epilepsy" Tour #aclfest #womwomwubbawubba @ Austin… http://t.co/vZY4cc2fhX</td>
+</tr>
+<tr id = "coord88">
+<td id = "lng">-97.7694157</td><td id = "lat">30.26716128</td>
+<td>Lorde, consider me on your team. #aclfest #impressed @ Austin City Limits Music Festival (ACL) http://t.co/zhSlEyA3JR</td>
+</tr>
+<tr id = "coord89">
+<td id = "lng">-97.7694157</td><td id = "lat">30.26716128</td>
+<td>Dang @sarahbarthel, very dang. @phantogram #aclfest #sidestage #nozoomneeded @ Austin City Limits… http://t.co/jZtac3te9h</td>
+</tr>
+<tr id = "coord90">
+<td id = "lng">-97.7694157</td><td id = "lat">30.26716128</td>
+<td>Phantogram #leatherpantsodamn #sidestage #nozoomneeded #aclfest @ Austin City Limits Music Festival (ACL) http://t.co/cSSjSzgOKd</td>
+</tr>
+<tr id = "coord92">
+<td id = "lng">-96.81911978</td><td id = "lat">33.08206965</td>
+<td>I had my hood up and ready for Eminem all day. Lose Yourself Ready. #ACLFest #Day1 #Eminem… http://t.co/NiIlmX6tw8</td>
+</tr>
+<tr id = "coord93">
+<td id = "lng">-96.81911978</td><td id = "lat">33.08206965</td>
+<td>I'm not Afraid #Eminem #ACLfest #BucketList @ Zilker Park http://t.co/7v4gsJS6tN</td>
+</tr>
+<tr id = "coord95">
+<td id = "lng">-96.81911978</td><td id = "lat">33.08206965</td>
+<td>Without Me #Eminem #ACLFest #Bucketlist @ Zilker Park http://t.co/vhRueTZamr</td>
+</tr>
+<tr id = "coord96">
+<td id = "lng">-97.76535276</td><td id = "lat">30.26663614</td>
+<td>I miss ACL already ???????????? #acl #aclfest #austincitylimits #austincitylimitsmusicfestival… http://t.co/BISlyrBY0f</td>
+</tr>
+<tr id = "coord97">
+<td id = "lng">-96.81911978</td><td id = "lat">33.08206965</td>
+<td>Bastards of Young #TheReplacements #ACLfest @ Zilker Park http://t.co/shUzOSPmUI</td>
+</tr>
+<tr id = "coord98">
+<td id = "lng">-96.81911978</td><td id = "lat">33.08206965</td>
+<td>Come with me now #Kongos #ACLfest @ Zilker Park http://t.co/iTYktfv5D5</td>
+</tr>
+<tr id = "coord99">
+<td id = "lng">-96.81911978</td><td id = "lat">33.08206965</td>
+<td>Yellow Ledbetter #PearlJam #ACLfest @ Zilker Park http://t.co/yX2WsZjEQ9</td>
+</tr>
+<tr id = "coord100">
+<td id = "lng">-97.11743595</td><td id = "lat">31.55107648</td>
+<td>#MCM ?? eminem #ACLFest @ ATX • Zilker Park http://t.co/MNNXIrqE3P</td>
+</tr>
+<tr id = "coord101">
+<td id = "lng">-97.7694157</td><td id = "lat">30.26716128</td>
+<td>the districts band @ #ACLfest 10.12.14 - #drawing #austin #music #festival #austincitylimits… http://t.co/cjdfrAjzez</td>
+</tr>
+<tr id = "coord104">
+<td id = "lng">-96.81911978</td><td id = "lat">33.08206965</td>
+<td>Even Flow #PearlJam #ACLFest @ Zilker Park http://t.co/Un0tJjCSb8</td>
+</tr>
+<tr id = "coord106">
+<td id = "lng">-96.81911978</td><td id = "lat">33.08206965</td>
+<td>Sirens #PearlJam #ACLFest @ Zilker Park http://t.co/P7o93g8Tme</td>
+</tr>
+<tr id = "coord107">
+<td id = "lng">-103.51175472</td><td id = "lat">25.56478762</td>
+<td>#Eminem #ACLFest ???? http://t.co/OjyiypeyRp</td>
+</tr>
+</table>
+
+<div class="rightside">
+<h1 class="one">The Artists of #ACL</h1>
+<p>For both musicians and fans, Austin City Limits is an event of profound importance.</p>
+<p>In addition to boasting a massive stage, the event gives people the opportunity to share their passions. People come to ACL to learn about new artists, rediscover acts from years ago, and of course, indulge in their current favourites. All the while, they are <strong>communicating</strong> about these experiences on twitter.</p><br/>
+
+<h1 class="two">Mapping Data</h1>
+<p>The map to the left is an effort towards realizes this information.</p>
+<p>Within the map, tweets containing the terms <strong>'<u>ACL</u>'</strong> coupled with <strong><u>any musical artist</u></strong> have been plotted to indicate where this activity is taking place.</p>
+<p>This representation clearly contains tweets related to a wide variety of musical artists (Lorde, Eminem, etc.) -- but what's different isn't as important as what's the same: <em>all of this communication comes from people talking about their experiences related to the artists' presence at the event</em>.</p>
+<p>Sometimes, it seems, that the nature and direction of communication isn't so telling as the volume.</p>
+
+
+
+</div>
+</div>
+</body>
